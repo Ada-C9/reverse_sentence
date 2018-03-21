@@ -32,7 +32,7 @@ describe "reverse sentence" do
       test_string.must_be_empty
     end
 
-    # if the parameter is an object, check for nil
+    # # if the parameter is an object, check for nil
     it "nil object passed to sentence reverse" do
       test_string = nil
 
