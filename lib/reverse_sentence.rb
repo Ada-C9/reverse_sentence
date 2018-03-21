@@ -1,7 +1,4 @@
 def string_reverse(my_string)
-  return nil if my_string.nil?
-  return my_string if my_string.length == 0 || my_string.length == 1
-
   i = 0
   j = my_string.length - 1
   while i < j
@@ -15,9 +12,6 @@ def string_reverse(my_string)
 end
 
 def reverse_words(my_words)
-  return nil if my_words.nil?
-  return my_words if my_words.length == 0 || my_words.length == 1
-
   index = 0
   while index < my_words.length
     j = index
@@ -44,6 +38,9 @@ end
 
 # A method to reverse the words in a sentence, in place.
 def reverse_sentence(my_sentence)
+  return nil if my_sentence.nil?
+  return my_sentence if my_sentence.length == 0
+
   string_reverse(my_sentence)
   reverse_words(my_sentence)
   return my_sentence
