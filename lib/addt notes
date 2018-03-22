@@ -1,0 +1,41 @@
+# A method to reverse a string in place.
+def string_reverse(my_string)	 def string_reverse(my_string)
++  return nil if my_string.nil?
++
++  value = 0
++
++  (my_string.length / 2).times do |num|
++    value -= 1
++
++    letter = my_string[value]
++    my_string[value] = my_string[num]
++    my_string[num] = letter
++
++  end
+
+
+# A method to reverse each word in a sentence, in place.
+def reverse_words(my_words)	 def reverse_words(my_words)
+-  raise NotImplementedError	+
++  return nil if my_words.nil?
++
++  start = 0
++  index = 0
++
++  until start >= my_words.length
++
++    until my_words[index].nil? || my_words[index] == " "
++      index += 1
++    end
++
++    ((index - start) / 2).times do |num|
++      letter = my_words[start + num]
++      my_words[start + num] = my_words[index - num - 1]
++      my_words[index - num - 1] = letter
++    end
++
++    index += 1
++    start = index
++
++  end
++
