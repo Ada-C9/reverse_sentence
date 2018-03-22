@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 require_relative '../lib/reverse_sentence'
 
 describe "reverse sentence" do
@@ -13,6 +14,7 @@ describe "reverse sentence" do
     end
 
     it "reverse a sentence with three words" do
+
       test_string = "Yoda is awesome!"
 
       reverse_sentence(test_string)
@@ -25,6 +27,7 @@ describe "reverse sentence" do
   describe "edge cases" do
     # if it's a string parameter, check for empty
     it "reverse an empty sentence" do
+
       test_string = ""
 
       reverse_sentence(test_string)
@@ -34,6 +37,7 @@ describe "reverse sentence" do
 
     # if the parameter is an object, check for nil
     it "nil object passed to sentence reverse" do
+
       test_string = nil
 
       reverse_sentence(test_string)
@@ -42,6 +46,7 @@ describe "reverse sentence" do
     end
 
     it "reverse a sentence with one word" do
+
       test_string = "world"
 
       reverse_sentence(test_string)
@@ -50,6 +55,7 @@ describe "reverse sentence" do
     end
 
     it "reverse a sentence with multiple words" do
+
       test_string = "I'm a better engineer today than I was yesterday."
 
       reverse_sentence(test_string)
@@ -58,6 +64,7 @@ describe "reverse sentence" do
     end
 
     it "reverse a sentence with multiple spaces between words" do
+
       test_string = "How  do  you   like     them      apples?"
 
       reverse_sentence(test_string)
@@ -66,6 +73,7 @@ describe "reverse sentence" do
     end
 
     it "reverse a sentence with preceeding and trailing white spaces" do
+      
       test_string = "  I can do this!     "
 
       reverse_sentence(test_string)
