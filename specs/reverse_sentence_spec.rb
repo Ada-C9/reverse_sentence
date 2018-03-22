@@ -1,5 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+Minitest::Reporters.use!
+require 'pry'
+
 require_relative '../lib/reverse_sentence'
 
 describe "reverse sentence" do
@@ -8,7 +11,6 @@ describe "reverse sentence" do
       test_string = "hello, world"
 
       reverse_sentence(test_string)
-
       test_string.must_equal "world hello,"
     end
 
