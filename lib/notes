@@ -1,0 +1,54 @@
+start at end (end = -1)
+move left and iterate until space or end
+
+    sentence[last_index].nil? || sentence[last_index] == " "
+store index which is one minus the start of last word (last_index)
+
+      end = -1
+      last_index = -1
+      until sentence[last_index].nil? || sentence[last_index] == " "
+        last_index -= 1
+      end
+
+
+
+
+
+
+
+
+start = start of word toward beginning...positive number
+end = end of word toward end...positive number
+
+  first_index = end of word toward beginning...negative number
+  last_index = start of word toward end...negative number
+
+start at beginning (start = 0)
+  move right and iterate until space or end start += 1
+  sentence[first_index].nil? || sentence[first_index] == " "
+  store index which is one plus the end of first word (first_index)
+
+  start = 0
+  first_index = 0
+  until sentence[first_index].nil? || sentence[first_index] == " "
+  first_index += 1
+  end
+
+compare to see which word is longer
+    length of first word not including term char (first_index - start)
+    length of last word not including term char (absolute value of last_index + 1)
+
+    first_index - start > abs(last_index + 1)   # first word longer
+    first_index - start < abs(last_index + 1)   # last word longer
+
+replace big word with small word and push to remove empty space
+
+  # first word longer
+  first_index - start > abs(last_index + 1)
+
+  # last word longer
+  (first_index - start) - abs(last_index + 1)
+
+add in small word
+
+---------------
