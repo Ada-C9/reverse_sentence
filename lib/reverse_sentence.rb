@@ -4,26 +4,31 @@ def reverse_sentence(my_sentence)
 
   reverse(my_sentence, 0, my_sentence.length - 1)
 
+  reverse_words(my_sentence)
+end
+
+def reverse_words(my_words)
+  return my_words if my_words.nil?
+
   left = 0
 
-  while left < my_sentence.length
+  while left < my_words.length
     right = left
 
-    until my_sentence[right] == " " || right == my_sentence.length
+    until my_words[right] == " " || right == my_words.length
       right += 1
     end
 
-    reverse(my_sentence, left, (right - 1))
+    reverse(my_words, left, (right - 1))
     left = right + 1
   end
 end
 
-
-def reverse(my_sentence, left, right)
+def reverse(my_words, left, right)
   while left < right
-    temp = my_sentence[left]
-    my_sentence[left] = my_sentence[right]
-    my_sentence[right] = temp
+    temp = my_words[left]
+    my_words[left] = my_words[right]
+    my_words[right] = temp
     left += 1
     right -= 1
   end
