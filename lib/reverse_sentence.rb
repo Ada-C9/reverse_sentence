@@ -6,25 +6,19 @@ def reverse_sentence(my_sentence)
   reverse_word(my_sentence, 0, my_sentence.length - 1)
 
   j = 0
-
   while j < my_sentence.length
-    
+
     while my_sentence[j] == " "
       j += 1
     end
 
     i = j
-
     while my_sentence[j] != " " && my_sentence[j] != nil
       j += 1
     end
-
     reverse_word(my_sentence, i, j - 1)
   end
 end
-
-
-
 
 def reverse_word(string, beginning, ending)
 
