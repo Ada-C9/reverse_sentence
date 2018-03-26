@@ -5,15 +5,7 @@ def reverse_sentence(my_sentence)
   length = my_sentence.length
   return if length < 2
 
-  front_counter = 0
-  back_counter = length - 1
-  while front_counter < back_counter do
-    temp = my_sentence[back_counter]
-    my_sentence[back_counter] = my_sentence[front_counter]
-    my_sentence[front_counter] = temp
-    front_counter += 1
-    back_counter -= 1
-  end
+  reverse(my_sentence, 0, length - 1)
 
   reverse_word(my_sentence, length)
 
