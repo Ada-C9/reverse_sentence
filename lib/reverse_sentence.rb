@@ -40,11 +40,11 @@ def reverse_sentence(sentence)
 
   while i < j do
 
-    last = sentence[j]
-    first = sentence[i]
+    start = sentence[j]
+    ending = sentence[i]
 
-    sentence[i] = last
-    sentence[j] = first
+    sentence[i] = start
+    sentence[j] = ending
 
     i += 1
     j -= 1
