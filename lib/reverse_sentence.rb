@@ -1,59 +1,55 @@
 # A method to reverse the words in a sentence, in place.
 require 'pry'
 
-
-def string_reverse(my_string)
-  l = my_string.length - 1
-  count = 0
-
-  if my_string.length > 2
-    return my_string
-  else
-    while count < l
-      letter = my_string[count]
-      my_string[count] = my_string[l]
-      my_string[l] = letter
-      count += 1
-      l -= 1
-    end
-  end
-  return my_string
-end
-
 def reverse_words(my_words)
- return nil if my_words.nil?
- return my_words if my_words.length == 0 || my_words == 1
+  i = 0
+  j = 0
+  while i < my_words.length
+    index = i
 
- index = 0
- j = index
- while index < my_words.length
-   j = index
-   while my_words[j] != " " && my_words[j] != nil
-     j += 1
-   end
+    while my_words[index] != " " && my_words[index] != nil
+      index += 1
+    end
 
-   if j != index
-     right = index
-     left = j - 1
-     while right < left
-       temp = my_words[right]
-       my_words[right] = my_words[left]
-       my_words[left] = temp
-       right += 1
-       left -= 1
-     end
-   end
-    index = j + 1
+    if index > 0
+      j = index - 1
+    else
+      j = index
+    end
+
+    while i < j
+      letter = my_words[i]
+      my_words[i] = my_words[j]
+      my_words[j] = letter
+
+      i += 1
+      j -= 1
+    end
+
+    i = index + 1
+
   end
+  return my_words
 end
 
+def reverse_sentence(sentence)
+  return sentence if sentence == nil || sentence.length == 0
 
-def reverse_sentence(my_sentence)
-  if my_sentence == nil || my_sentence.length <= 1
-    return my_sentence
-  else
-    string_reverse(my_sentence)
-    reverse_words(my_sentence)
+  i = 0
+  j = sentence.length - 1
+
+  while i < j do
+
+    last = sentence[j]
+    first = sentence[i]
+
+    sentence[i] = last
+    sentence[j] = first
+
+    i += 1
+    j -= 1
+
   end
-  my_sentence
-end
+
+  return reverse_words(sentence)
+ end
