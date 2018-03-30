@@ -1,10 +1,11 @@
-# A method to reverse the words in a sentence, in place.
 
 def reverse_sentence(my_sentence)
+  string_reverse(my_sentence)
+
   index = 0
 
   while index < my_sentence.length
-    until my_sentence[index] != ' '|| index >= my_sentence.length # while or until both work
+    until my_sentence[index] != ' '
       index += 1
     end
 
@@ -12,32 +13,41 @@ def reverse_sentence(my_sentence)
       index += 1
     end
 
-    if index == ' '
+    i = 0
+    s = my_sentence.length - 1
+    while i < s
+      temp = my_sentence[i]
+      my_sentence[i] = my_sentence[s]
+      my_sentence[s] = temp
+      i += 1
+      s -= 1
+    end
+
+    if my_sentence[index] == ' '
       start_word = index + 1
-    else
-      start_word = index[0] # changed from 'index'
     end
 
-    if index ==  ' ' || index >= my_sentence.length - 1
-      end_word = index
-    else
+    if my_sentence[index] ==  ' ' || index >= my_sentence.length - 1
       end_word = index - 1
-    end
-
-    start_left = (index[start_word]..index[end_word])
-    end_right = (index[start_word]..index[end_word])
-
-    while start_left < end_right
-      temp = my_sentence[start_left]
-      my_sentence[start_left] = my_sentence[end_right]
-      my_sentence[end_right] = temp
-
-      start_left += 1
-      end_right -= 1
     end
 
     index += 1
   end
-
   return my_sentence
 end
+
+def string_reverse(my_sentence)
+  i = 0
+  s = my_sentence.length - 1
+
+  while i < s
+    temp = my_sentence[i]
+    my_sentence[i] = my_sentence[s]
+    my_sentence[s] = temp
+    i += 1
+    s -= 1
+  end
+end
+
+
+puts reverse_sentence("Yoda is awesome!")
