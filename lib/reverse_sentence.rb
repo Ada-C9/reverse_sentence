@@ -1,69 +1,67 @@
-# A method to reverse the words in a sentence, in place.
-def reverse_sentence(my_sentence)
+# # A method to reverse the words in a sentence, in place.
 
-  if my_sentence == nil || my_sentence.length < 1
-    return my_sentence
-  end
 
-  origin = 0
-  x = 0
+def string_reverse(my_string)
+  if my_string == nil || my_string.length <= 1
+    return my_string
+  else
+    string = my_string
+    index_f = 0
+    index_l = (string.length - 1)
 
-  while x < my_sentence.length
-    if my_sentence[x] != " "
-      # space and word_2 for "An gs" not "  sdf sd"
-      while my_sentence[x] != " "
-        x += 1
-        block2_start = x
-      end
+    while index_f - index_l <= 0
+      first = string[index_f].dup
+      last = string[index_l].dup
+      string[index_f] = last
+      string[index_l] = first
 
-      while my_sentence[x] == " "
-        x += 1
-      end
-
-      word = [origin...block2_start]
-      origin = x
-      space = [block2_start...origin]
-      word_space = word + space
-
-      while my_sentence[x] != " "
-        x += 1
-      end
-
-      block2 = [origin...x].to_s
-
-    else
-      # space and word_2 for "An gs n" not " sdf sd d"
-      while my_sentence[x] != " "
-        x += 1
-        block2_start = x
-      end
-
-      while my_sentence[x] == " "
-        x += 1
-      end
-
-      space = [origin...block2_start]
-      origin = x
-      word = [block2_start...origin]
-      word_space = space + word
-
-      while my_sentence[x] == " "
-        x += 1
-      end
-
-      block2 = [origin...x].to_s
+      index_f += 1
+      index_l -= 1
     end
-
-    frameshift_index = x - 1
-
-    x.times do |character|
-      my_sentence[(frameshift_index + block2.length)] = my_sentence[frameshift_index]
-      frameshift_index -= 1
-    end
-
-    # insert word_2
-    my_sentence[0...x] = block2
+    return string
   end
 end
 
-puts reverse_sentence("Hellow is it me")
+def reverse_words(string)
+  if string.nil? || string.length < 1
+    return string
+  end
+
+  index = 0
+  first_index = 0
+
+  while index < string.length
+
+    until string[index] != " " || index == (string.length - 1)
+      index += 1
+    end
+
+    first_index = index
+
+    until string[index] == " " || index == (string.length - 1)
+      index += 1
+    end
+
+    last_index = index - 1
+
+    if string[index] != " "
+      last_index = index
+    end
+
+    (((last_index - first_index) + 1) / 2).times do
+      first = string[first_index]
+      string[first_index] = string[last_index]
+      string[last_index] = first
+
+      first_index += 1
+      last_index -= 1
+    end
+
+    index += 1
+  end
+  return string
+end
+
+def reverse_sentence(my_sentence)
+ reverse_words(string_reverse(my_sentence))
+end
