@@ -1,8 +1,3 @@
-# # A method to reverse the words in a sentence, in place.
-# def reverse_sentence(my_sentence)
-#   puts "NOT IMPLEMENTED"
-# end
-
 # Helper method for partial string reversal
 # Reverses the character from start_index to end_index
 def partial_reverse(my_string, start_index, end_index)
@@ -18,7 +13,7 @@ def partial_reverse(my_string, start_index, end_index)
   return
 end
 
-# A method to reverse each word in a sentence, in place.
+# Helper method to reverse each word in a sentence, in place.
 # Time complexity: O(n) where n is the length of my_words
 # - Each character in my_words gets scanned once to find the beginning and end of
 # a word. For this, the characters are compared to the white space, and character
