@@ -1,11 +1,15 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/reverse_sentence'
+require 'pry'
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 describe "reverse sentence" do
   describe "basic tests" do
     it "reverse a sentence with two words" do
       test_string = "hello, world"
+      
 
       reverse_sentence(test_string)
 
