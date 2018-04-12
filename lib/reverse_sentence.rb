@@ -1,21 +1,3 @@
-def string_reverse(my_string)
-  return nil if my_string == nil || my_string.length == 0
-
-  return my_string if my_string.length == 1
-
-  idx_alpha = 0
-  idx_beta = my_string.length - 1
-
-  while idx_alpha < idx_beta
-    temp = my_string[idx_alpha]
-    my_string[idx_alpha] = my_string[idx_beta]
-    my_string[idx_beta] = temp
-    idx_alpha += 1
-    idx_beta -= 1
-  end
-  return my_string
-end
-
 def reverse_words(words)
   return nil if words == nil || words.length == 0
 
